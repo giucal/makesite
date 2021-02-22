@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Scheme</title>
+  <link rel="stylesheet" href="http://localhost:8080/style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1>Scheme</h1>
+<p>Here’s some Scheme code, just to fill a page.</p>
+<pre><code>; This is an exercise pad exploring the basics of Scheme.
+
+; Preliminarly, a syntax rule implementing assertions.
+(define-syntax-rule (assert expr)
+  (cond ((not expr) (error &quot;failed assertion:&quot; &#39;expr))))
+
+; The null expression.
+(assert (eq? null &#39;()))
+
+; A pair is any expression with a car and a cdr.
+; It can be constructed with cons.
+(assert (pair? (cons &#39;x &#39;y)))
+(assert (pair? (cons &#39;x &#39;())))
+
+; car and cdr
+(assert (eq? &#39;x (car &#39;(x))))
+(assert (eq? &#39;() (cdr &#39;(x))))
+(assert (eq? &#39;x (car (cons &#39;x &#39;y))))
+(assert (eq? &#39;y (cdr (cons &#39;x &#39;y))))
+(assert (eq? &#39;() (cdr (cons &#39;x &#39;()))))
+
+; An atom is an expression which is neither a pair nor null.
+; Let&#39;s define a procedure (a function) which tells us whether
+; an expression is an atom.
+(define atom?
+  (lambda (expr)
+    (not (or (pair? expr) (null? expr)))))
+
+; The null expression is neither a pair, not an atom.
+(assert (and (not (pair? &#39;()))
+             (not (atom? &#39;()))))
+
+; Factorial. A typical recursive procedure.
+(define (! n)
+  (cond ((&lt;= n 1) =&gt; 1)
+        (else (* n (! (sub1 n))))))
+
+; Search a list for an element and returns its position.
+;
+; Examples:
+;
+; ; &#39;() means &quot;not found&quot;.
+; &gt; (list/search &#39;(a b c) &#39;x)
+; &#39;()
+;
+; &gt; (list/search &#39;(a b c) &#39;a)
+; 0
+;
+; ; With starting position 1 instead of 0.
+; &gt; (list/search &#39;(a b c) &#39;a 1)
+; 1
+; &gt; (list/search &#39;(a b c) &#39;b 1)
+; 2
+(define (list/search ls el [from 0])
+  (cond ((null? ls) &#39;())
+        ((eq? el (car ls)) from)
+        (else (list/search (cdr ls) el (add1 from)))))
+
+; Test.
+(for-each
+ (lambda (el from pos)
+   (assert (eq? pos (list/search &#39;(a b c d) el from))))
+ &#39;(a b c d e a b c d)   ; el
+ &#39;(0 0 0 0 0 1 2 3 4)   ; from
+ &#39;(0 1 2 3 () 1 3 5 7)) ; pos</code></pre>
+</body>
+</html>
