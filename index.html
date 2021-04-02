@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Makesite</title>
+  <link rel="stylesheet" href="https://giucal.it/makesite/style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1>Makesite</h1>
+<p>A blueprint for a simple static website. Built with Make, pandoc, and some shell script.</p>
+<h2>Directory structure</h2>
+<p>The source directory is structured as follows.</p>
+<pre><code>source-directory
+├── assets        static assets (e.g. CSS, Javascript)
+├── bin           auxiliary scripts
+├── build
+│   ├── local     preview build
+│   └── public    deployment build
+├── content       content (e.g. posts and their static attachments)
+├── templates     HTML templates
+└── Makefile      the makefile</code></pre>
+<h2>Use</h2>
+<p>Customize the following variables in the <a href="Makefile">Makefile</a>, if you want.</p>
+<p>Variable | Description ————— | ––––––––––––––––––––––––––––– <code>FROM</code> | The content directory. <code>TO</code> | The preview build directory. <code>WITH</code> | The static assets directory. <code>DEPLOY_DIR</code> | The deployment build directory. <code>DEPLOY_BRANCH</code> | The deploy branch name. To be checked out in <code>DEPLOY_DIR</code>.</p>
+<p>Any of these will be created if they don’t exist.</p>
+</body>
+</html>
