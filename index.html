@@ -11,22 +11,89 @@
   <![endif]-->
 </head>
 <body>
-<h1>Makesite</h1>
-<p>A blueprint for a simple static website. Built with Make, pandoc, and some shell script.</p>
-<h2>Directory structure</h2>
+<h1 id="makesite">Makesite</h1>
+<p>A blueprint for a simple static website. Built with Make, pandoc, and <em>some</em> shell script.</p>
+<h2 id="directory-structure">Directory structure</h2>
 <p>The source directory is structured as follows.</p>
-<pre><code>source-directory
-├── assets        static assets (e.g. CSS, Javascript)
-├── bin           auxiliary scripts
-├── build
-│   ├── local     preview build
-│   └── public    deployment build
-├── content       content (e.g. posts and their static attachments)
-├── templates     HTML templates
-└── Makefile      the makefile</code></pre>
-<h2>Use</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Directory</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>source-directory</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>├── assets      </code></td>
+<td>static assets (e.g. CSS, Javascript)</td>
+</tr>
+<tr class="odd">
+<td><code>├── bin         </code></td>
+<td>auxiliary scripts</td>
+</tr>
+<tr class="even">
+<td><code>├── build       </code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>│   ├── local   </code></td>
+<td>preview build</td>
+</tr>
+<tr class="even">
+<td><code>│   └── public  </code></td>
+<td>deployment build</td>
+</tr>
+<tr class="odd">
+<td><code>├── content     </code></td>
+<td>content (e.g. posts and their static attachments)</td>
+</tr>
+<tr class="even">
+<td><code>├── templates   </code></td>
+<td>HTML templates</td>
+</tr>
+<tr class="odd">
+<td><code>└── Makefile    </code></td>
+<td>the makefile</td>
+</tr>
+</tbody>
+</table>
+<h2 id="use">Use</h2>
 <p>Customize the following variables in the <a href="Makefile">Makefile</a>, if you want.</p>
-<p>Variable | Description ————— | ––––––––––––––––––––––––––––– <code>FROM</code> | The content directory. <code>TO</code> | The preview build directory. <code>WITH</code> | The static assets directory. <code>DEPLOY_DIR</code> | The deployment build directory. <code>DEPLOY_BRANCH</code> | The deploy branch name. To be checked out in <code>DEPLOY_DIR</code>.</p>
-<p>Any of these will be created if they don’t exist.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>FROM</code></td>
+<td>The content directory.</td>
+</tr>
+<tr class="even">
+<td><code>TO</code></td>
+<td>The preview build directory.</td>
+</tr>
+<tr class="odd">
+<td><code>WITH</code></td>
+<td>The static assets directory.</td>
+</tr>
+<tr class="even">
+<td><code>DEPLOY_DIR</code></td>
+<td>The deployment build directory.</td>
+</tr>
+<tr class="odd">
+<td><code>DEPLOY_BRANCH</code></td>
+<td>The deploy branch name. To be checked out in <code>DEPLOY_DIR</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Any of these will be created by <code>make init</code> if they don’t exist.</p>
+<pre><code>make init</code></pre>
 </body>
 </html>
