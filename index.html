@@ -89,7 +89,7 @@
 <h3 id="initialization">Initialization</h3>
 <p>The Makefile expects to be run in a Git repository:</p>
 <pre><code>git init</code></pre>
-<p>After setting any of the above <a href="#configutation">configuration variables</a>, and before starting to develop your site, invoke</p>
+<p>After setting any of the above <a href="#configuration">configuration variables</a>, and before starting to develop your site, invoke</p>
 <pre><code>make init</code></pre>
 <p>This command ensures that the repository is correctly initialized.</p>
 <h3 id="workflow">Workflow</h3>
@@ -108,9 +108,9 @@
 <p>To update the build <em>and</em> preview the site:</p>
 <pre><code>make draft serve</code></pre>
 <p>To let the server run in the background while making changes:</p>
-<pre><code>make serve</code></pre>
+<pre><code>make serve &amp;</code></pre>
 <p>If you don’t want to see the log, I recommend:</p>
-<pre><code>make serve 2&gt; server.log</code></pre>
+<pre><code>make serve 2&gt; server.log &amp;</code></pre>
 <p>If something weird happens, you can inspect <code>server.log</code>.</p>
 <h3 id="deploy">Deploy</h3>
 <p>To build the deployment version:</p>
