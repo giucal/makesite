@@ -24,36 +24,37 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>assets</code></td>
-<td>static assets (e.g. CSS, Javascript)</td>
-</tr>
-<tr class="even">
-<td><code>bin</code></td>
-<td>auxiliary scripts</td>
-</tr>
-<tr class="odd">
-<td><code>build/local</code></td>
-<td>preview build</td>
-</tr>
-<tr class="even">
-<td><code>build/public</code></td>
-<td>deployment build</td>
-</tr>
-<tr class="odd">
-<td><code>content</code></td>
-<td>content (e.g. posts and their static attachments)</td>
-</tr>
-<tr class="even">
-<td><code>templates</code></td>
-<td>HTML templates</td>
-</tr>
-<tr class="odd">
 <td><code>Makefile</code></td>
-<td>the makefile</td>
+<td><em>The Makefile.</em></td>
+</tr>
+<tr class="even">
+<td><code>assets</code></td>
+<td>Static assets (e.g. CSS, Javascript).</td>
+</tr>
+<tr class="odd">
+<td><code>bin</code></td>
+<td>Auxiliary scripts.</td>
+</tr>
+<tr class="even">
+<td><code>build/local</code></td>
+<td>Preview build.</td>
+</tr>
+<tr class="odd">
+<td><code>build/public</code></td>
+<td>Deployment build.</td>
+</tr>
+<tr class="even">
+<td><code>content</code></td>
+<td>Content (e.g. posts and their static attachments).</td>
+</tr>
+<tr class="odd">
+<td><code>templates</code></td>
+<td>HTML templates.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="use">Use</h2>
+<h3 id="configuration">Configuration</h3>
 <p>Customize the following variables in the <a href="Makefile">Makefile</a>, if you want.</p>
 <table>
 <thead>
@@ -85,7 +86,47 @@
 </tr>
 </tbody>
 </table>
-<p>Any of these will be created by <code>make init</code> if they don’t exist.</p>
+<h3 id="initialization">Initialization</h3>
+<p>The Makefile expects to be run in a Git repository:</p>
+<pre><code>git init</code></pre>
+<p>After setting any of the above <a href="#configutation">configuration variables</a>, and before starting to develop your site, invoke</p>
 <pre><code>make init</code></pre>
+<p>This command ensures that the repository is correctly initialized.</p>
+<h3 id="workflow">Workflow</h3>
+<h4 id="local-rebuild">Local (re)build</h4>
+<p>To build your site locally:</p>
+<pre><code>make draft</code></pre>
+<p>or just</p>
+<pre><code>make</code></pre>
+<p>Every time you make a change to the content, issuing <code>make</code> again should be sufficient to compile only those files that have been affected.</p>
+<p>Sometimes, though, it’s necessary to do rebuild from the ground up:</p>
+<pre><code>make clean draft</code></pre>
+<p>Using <code>make -B</code> (same as <code>make draft -B</code>) in this case would rebuild <em>on top</em> of what’s already there; which is not what you want.</p>
+<h4 id="local-preview">Local preview</h4>
+<p>To preview the site on your machine:</p>
+<pre><code>make serve</code></pre>
+<p>To update the build <em>and</em> preview the site:</p>
+<pre><code>make draft serve</code></pre>
+<p>To let the server run in the background while making changes:</p>
+<pre><code>make serve</code></pre>
+<p>If you don’t want to see the log, I recommend:</p>
+<pre><code>make serve 2&gt; server.log</code></pre>
+<p>If something weird happens, you can inspect <code>server.log</code>.</p>
+<h3 id="deploy">Deploy</h3>
+<p>To build the deployment version:</p>
+<pre><code>make final</code></pre>
+<p>To commit this version as it is to the deployment branch:</p>
+<pre><code>make commit</code></pre>
+<p>To push changes to the remote deployment branch (assumed to have the same name):</p>
+<pre><code>make push</code></pre>
+<p>If the local version was OK and you feel intrepid, you can also deploy the site in one step:</p>
+<pre><code>make deploy</code></pre>
+<p>which is of course the same as <code>make final commit push</code>.</p>
+<h4 id="note">Note</h4>
+<p>The deployment version is always rebuild from scratch when you do <code>make final</code>. If you’re <em>really</em> intrepid, you can build it incrementally:</p>
+<pre><code>make final-incrementally</code></pre>
+<h3 id="other-operations">Other operations</h3>
+<p>To clean the local build without rebuilding:</p>
+<pre><code>make clean</code></pre>
 </body>
 </html>
