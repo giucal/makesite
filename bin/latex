@@ -1,0 +1,23 @@
+#!/bin/sh
+
+usage() {
+    echo >&2 "Usage: $(basename "$0") [-h] [--] <input-file> <output-file>"
+    exit 2
+}
+
+getopts 'h' _ && usage
+[ "$1" = '--' ] && shift
+[ $# -ne 2 ] && usage
+
+set -e
+
+mkdir -p .tmp
+
+tmpdir=$(mktemp .tmp/latex.XXXXXXXXXX)
+ln "$1" "$tmpdir"/source.tex
+cd "$tmpdir"
+
+pdflatex source.tex
+
+cd ..
+mv "$tmpdir"/source.pdf "$2"

@@ -1,0 +1,23 @@
+#!/bin/sh
+
+target() {
+    base=$(basename "$fn")
+    stem=${base%.*}
+
+    if [ "$stem" = 'index' ]; then
+        echo "${fn%.*}.html"
+    else
+        echo "${fn%.*}/index.html"
+    fi
+}
+
+# Process command line arguments.
+for fn in "$@"; do
+    target
+done
+
+# Process input.
+while read fn; do
+    [ -z "$fn" ] && continue
+    target
+done
