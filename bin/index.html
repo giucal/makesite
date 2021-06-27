@@ -16,7 +16,7 @@
 <h3 id="ignore"><a href="ignore"><code>ignore</code></a></h3>
 <p>Manages the <code>.gitignore</code> file. Some files and directories need to be excluded from tracking to ensure “correct operation.”</p>
 <h3 id="markdown"><a href="markdown"><code>markdown</code></a></h3>
-<p>Renders a Markdown document, writing a proper HTML document to disk. Templating is managed by this script.</p>
+<p>Renders a Markdown document, writing a proper HTML document to disk. It also takes care of templating.</p>
 <h3 id="server"><a href="server"><code>server</code></a></h3>
 <p>Starts a local server for previewing. Uses Python’s <code>http.server</code>.</p>
 <h3 id="setup-deploy"><a href="setup-deploy"><code>setup-deploy</code></a></h3>
@@ -36,10 +36,10 @@ heading
 <pre><code>The first Setext
 heading
 ----------------</code></pre>
-<p>Setext headings can span multiple lines because it makes sense. And anyway, <a href="https://spec.commonmark.org/current/#setext-headings">the CommonMark specification agrees</a>.</p></li>
-<li><p>A run of text (not necessarily a paragraph!) followed by a new line or EOF.</p></li>
-<li><p>The empty title, ““.</p></li>
+<p>(<a href="https://spec.commonmark.org/current/#setext-headings">Setext headings can span multiple lines.</a>)</p></li>
+<li><p>A run of text (not necessarily a paragraph!) followed by an empty line or EOF.</p></li>
+<li><p>The empty title.</p></li>
 </ul>
-<p>It trunctates very long titles.</p>
+<p>It trunctates long runs of text.</p>
 </body>
 </html>
