@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Usage: any <pattern> ...
+
+cat
+printf -- '-iname %s\n' "$1"; shift
+printf -- '-or -iname %s\n' "$@"

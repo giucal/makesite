@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Filter content by name and extension.
+
+usage() {
+    echo >&2 "Usage: $0 [-h] [--] <content-directory> <glob> <suffix>"
+    exit 2
+}
+
+getopts h _ && usage
+[ "$1" = '--' ] && shift
+[ $# -ne 3 ] && usage
+
+find -L "$1" -name "$2" | grep -E "\.($3)$"
