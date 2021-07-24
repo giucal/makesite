@@ -1,7 +1,0 @@
-#!/bin/sh
-
-# Usage: only <pattern> ...
-
-cat
-printf -- '-iname %s\n' "$@"
-

@@ -1,7 +1,0 @@
-#!/bin/sh
-
-# Usage: none <pattern> ...
-
-cat
-printf -- '-not -iname %s\n' "$@"
-
