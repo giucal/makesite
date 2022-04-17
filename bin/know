@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Adds an entry to the index.
+
+usage() {
+    echo >&2 "Usage: INDEX=<index> $0 [-h] <source> <target>"
+    exit 2
+}
+
+getopts 'h' _ && usage
+[ "$1" = '--' ] && shift
+[ $# -ne 2 ] && usage
+[ -z "$INDEX" ] && usage
+
+printf -- '- [%s](%s)\n' "$(bin/title "$1")" "$2" >> "$INDEX"
