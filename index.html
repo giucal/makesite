@@ -12,6 +12,14 @@
   <![endif]-->
 </head>
 <body>
+  <header>
+<ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="..">Up</a></li>
+</ul>
+  </header>
+  <main>
+    <article>
 <h1 id="makesite">Makesite</h1>
 <p>A blueprint for a simple static website. Built with Make, Pandoc, and some shell script.</p>
 <h2 id="directory-structure">Directory structure</h2>
@@ -87,7 +95,7 @@
 </tr>
 <tr class="even">
 <td><code>DEPLOY_PREFIX</code></td>
-<td>The conventional deploy directory, e.g. <code>$(DEPLOY_DIR)/www</code>.</td>
+<td>The common prefix for deploy artifacts, e.g. <code>www</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -132,5 +140,22 @@
 <h3 id="other-operations">Other operations</h3>
 <p>To clean the local build without rebuilding:</p>
 <pre><code>make clean</code></pre>
+    </article>
+  </main>
+  <footer>
+<ul>
+  <li>
+    <a href="https://github.com/giucal/makesite">Makesite on GitHub</a>
+  </li>
+  <li>
+    <a href="mailto:spam@giucal.it">Contact (<i>s/spam/contact</i>)</a>
+  </li>
+</ul>
+
+<p>
+  Generated with <a href="https://giucal.it/makesite">Makesite</a>.
+  Theme originally by <a href="https://giucal.it">giucal</a>.
+</p>
+  </footer>
 </body>
 </html>
