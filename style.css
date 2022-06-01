@@ -4,8 +4,8 @@
   --link-color: #000044;
   --highlight-color: #ff440022;
   --rule-color: #44444422;
-  --serif: "Iowan Old Style", Charter, Garamond, ui-serif, Georgia, serif;
-  --monospace: Inconsolata, Consolas, ui-monospace, Menlo, monospace;
+  --serif: "Iowan Old Style", Charter, Garamond, Georgia, ui-serif, serif;
+  --monospace: Consolas, ui-monospace, monospace;
 }
 
 * {
