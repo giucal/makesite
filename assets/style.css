@@ -1,8 +1,7 @@
 :root {
   --light-color: #444444;
-  --visited-color: #440000;
-  --link-color: #000044;
-  --highlight-color: #ff440022;
+  --visited-color: #880000;
+  --link-color: #000088;
   --rule-color: #44444422;
   --serif: "Iowan Old Style", Charter, Garamond, Georgia, ui-serif, serif;
   --monospace: Consolas, ui-monospace, monospace;
@@ -117,7 +116,6 @@ a:visited {
 
 a:hover {
   text-decoration: none;
-  background-color: var(--highlight-color);
 }
 
 code {
